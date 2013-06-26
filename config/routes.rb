@@ -1,6 +1,11 @@
 Campaigner::Application.routes.draw do
   resources :campaigns do
-    resources :keywords, :sheets
+    resources :keywords do
+      member do
+        patch 'reject'
+      end
+    end
+    resources :sheets
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

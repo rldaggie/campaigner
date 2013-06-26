@@ -1,9 +1,18 @@
 class KeywordsController < ApplicationController
   before_action :set_campaign
-  before_action :set_keyword, only: [:show, :edit, :update, :destroy]
+  before_action :set_keyword, only: [:show, :edit, :update, :destroy, :reject]
 
   def index
-    @keywords = @campaign.keywords
+    @keywords = @campaign.keywords.where(accepted: true)
+  end
+  
+  def reject
+    @keyword.update_attribute(:accepted, false)
+    respond_to do |format|
+      format.html { redirect_to campaign_keywords_url(@campaign) }
+      format.json { head :no_content }
+      format.js { head :no_content }
+    end
   end
 
   def destroy

@@ -20,7 +20,7 @@
         <td><%= keyword.name %></td>
         <td><%= number_to_currency keyword.cost_per_click %></td>
         <td><%= number_with_precision keyword.clicks_per_day, precision: 2 %></td>
-        <td><%= link_to 'Destroy', campaign_keyword_path(@campaign, keyword), method: :delete, remote: true, class: 'delete-keyword' %></td>
+        <td><%= link_to 'Reject', reject_campaign_keyword_path(@campaign, keyword), method: :patch, remote: true, class: 'delete-keyword' %></td>
       </tr>
     <% end %>
   </tbody>
