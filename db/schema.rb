@@ -11,12 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130626175906) do
+ActiveRecord::Schema.define(version: 20130626180050) do
 
   create_table "campaigns", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "keywords", force: true do |t|
+    t.string   "name"
+    t.decimal  "cost_per_click", precision: 8, scale: 2
+    t.decimal  "clicks_per_day", precision: 8, scale: 2
+    t.integer  "campaign_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "keywords", ["campaign_id"], name: "index_keywords_on_campaign_id"
 
 end

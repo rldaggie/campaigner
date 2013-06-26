@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  cost_per_click: 9.99
+  clicks_per_day: 9.99
+  campaign_id: 1
+
+two:
+  name: MyString
+  cost_per_click: 9.99
+  clicks_per_day: 9.99
+  campaign_id: 1
