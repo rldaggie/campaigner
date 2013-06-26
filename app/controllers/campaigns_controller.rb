@@ -28,7 +28,7 @@ class CampaignsController < ApplicationController
 
     respond_to do |format|
       if @campaign.save
-        format.html { redirect_to @campaign, notice: 'Campaign was successfully created.' }
+        format.html { redirect_to new_campaign_sheet_path(@campaign), notice: 'Campaign was successfully created.' }
         format.json { render action: 'show', status: :created, location: @campaign }
       else
         format.html { render action: 'new' }
