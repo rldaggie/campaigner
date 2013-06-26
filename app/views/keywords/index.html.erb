@@ -1,4 +1,8 @@
-<h1>Listing keywords</h1>
+<h1>Listing keywords for <%= @campaign.name %></h1>
+
+<%= link_to 'Back', campaigns_url %>
+
+<p>Total Clicks: <%= @campaign.total_clicks_per_day %></p>
 
 <table>
   <thead>
@@ -6,8 +10,7 @@
       <th>Name</th>
       <th>Cost per click</th>
       <th>Clicks per day</th>
-      <th>Campaign</th>
-      <th></th>
+      <th>Actions</th>
     </tr>
   </thead>
 
@@ -16,8 +19,8 @@
       <tr>
         <td><%= keyword.name %></td>
         <td><%= number_to_currency keyword.cost_per_click %></td>
-        <td><%= keyword.clicks_per_day %></td>
-        <td><%= link_to 'Destroy', campaign_keyword_path(@campaign, keyword), method: :delete %></td>
+        <td><%= number_with_precision keyword.clicks_per_day, precision: 2 %></td>
+        <td><%= link_to 'Destroy', campaign_keyword_path(@campaign, keyword), method: :delete, remote: true, class: 'delete-keyword' %></td>
       </tr>
     <% end %>
   </tbody>

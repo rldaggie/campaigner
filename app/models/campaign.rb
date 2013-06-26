@@ -3,4 +3,8 @@ class Campaign < ActiveRecord::Base
   has_many :sheets, dependent: :destroy
   
   validates :name, presence: true
+  
+  def total_clicks_per_day
+    keywords.pluck(:clicks_per_day).sum.to_i
+  end
 end
