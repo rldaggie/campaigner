@@ -18,7 +18,7 @@ class Sheet < ActiveRecord::Base
   
   def can_add_row?(row, keyword_names)
     return false unless row['Keyword'].present? && !keyword_names.include?(row['Keyword'])
-    return false unless row['Average CPC'].to_f < 3
+    return false unless row['Average CPC'].to_f <= 2
     return false unless row['Clicks'].to_f > 0
     true
   end
