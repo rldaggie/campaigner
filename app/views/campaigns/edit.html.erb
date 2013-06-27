@@ -1,6 +1,9 @@
-<h1>Editing campaign</h1>
+<div class="page-header">
+  <div class="btn-group pull-right">
+    <%= link_to 'Keywords', campaign_keywords_path(@campaign), class: 'btn' %>
+    <%= link_to 'Back', campaigns_path, class: 'btn btn-info' %>
+  </div><!--// .btn-group pull-right -->
+  <h1>Editing campaign</h1>
+</div><!--// .page-header -->
 
 <%= render 'form' %>
-
-<%= link_to 'Show', @campaign %> |
-<%= link_to 'Back', campaigns_path %>
