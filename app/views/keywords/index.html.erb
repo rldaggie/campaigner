@@ -17,7 +17,7 @@
   <tbody>
     <% @keywords.each do |keyword| %>
       <tr>
-        <td><%= keyword.name %></td>
+        <td><%= link_to keyword.name, "http://www.google.com/search?q=#{u keyword.name}", target: '_blank' %></td>
         <td><%= number_to_currency keyword.cost_per_click %></td>
         <td><%= number_with_precision keyword.clicks_per_day, precision: 2 %></td>
         <td><%= link_to 'Reject', reject_campaign_keyword_path(@campaign, keyword), method: :patch, remote: true, class: 'delete-keyword' %></td>
