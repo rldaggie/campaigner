@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 20130626215631) do
     t.integer  "campaign_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "accepted",                               default: true
+    t.boolean  "accepted"
   end
 
   add_index "keywords", ["campaign_id"], name: "index_keywords_on_campaign_id"
