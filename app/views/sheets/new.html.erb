@@ -1,5 +1,8 @@
-<h1>New sheet</h1>
+<div class="page-header">
+  <div class="btn-group pull-right">
+    <%= link_to 'Back', campaign_keywords_path(@campaign), class: 'btn' %>
+  </div><!--// .btn-group pull-right -->
+  <h1>New spreadsheet</h1>
+</div><!--// .page-header -->
 
 <%= render 'form' %>
-
-<%= link_to 'Back', campaign_keywords_path(@campaign) %>

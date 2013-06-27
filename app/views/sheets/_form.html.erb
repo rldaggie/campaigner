@@ -11,11 +11,13 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :spreadsheet %><br>
-    <%= f.file_field :spreadsheet %>
+  <div class="control-group">
+    <%= f.label :spreadsheet, class: 'control-label' %>
+    <div class="controls">
+      <%= f.file_field :spreadsheet %>
+    </div><!--// .controls -->
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: 'btn' %>
   </div>
 <% end %>
