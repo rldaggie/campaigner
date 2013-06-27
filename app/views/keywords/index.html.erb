@@ -1,10 +1,14 @@
-<h1>Listing keywords for <%= @campaign.name %></h1>
+<div class="page-header">
+  <div class="btn-group pull-right">
+    <%= link_to 'All campaigns', campaigns_url, class: 'btn' %>
+    <%= link_to 'Add spreadsheet', new_campaign_sheet_path(@campaign), class: 'btn btn-success' %>
+  </div><!--// .btn-group pull-right -->
+  <h1>Keywords <small><%= @campaign.name %></small></h1>
+</div><!--// .page-header -->
 
-<%= link_to 'Back', campaigns_url %>
+<p><strong>Total Clicks</strong>: <%= @campaign.total_clicks_per_day %></p>
 
-<p>Total Clicks: <%= @campaign.total_clicks_per_day %></p>
-
-<table>
+<table class="table table-striped table-hover">
   <thead>
     <tr>
       <th>Name</th>
@@ -20,10 +24,8 @@
         <td><%= link_to keyword.name, "http://www.google.com/search?q=#{u keyword.name}", target: '_blank' %></td>
         <td><%= number_to_currency keyword.cost_per_click %></td>
         <td><%= number_with_precision keyword.clicks_per_day, precision: 2 %></td>
-        <td><%= link_to 'Reject', reject_campaign_keyword_path(@campaign, keyword), method: :patch, remote: true, class: 'delete-keyword' %></td>
+        <td><%= link_to 'Reject', reject_campaign_keyword_path(@campaign, keyword), method: :patch, remote: true, class: 'delete-keyword btn btn-danger btn-small' %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<%= link_to 'Add spreadsheet', new_campaign_sheet_path(@campaign) %>
