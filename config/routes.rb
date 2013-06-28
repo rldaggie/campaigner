@@ -4,6 +4,9 @@ Campaigner::Application.routes.draw do
       member do
         patch 'reject'
       end
+      collection do
+        patch 'accept'
+      end
     end
     resources :sheets
   end

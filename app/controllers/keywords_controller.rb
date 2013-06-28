@@ -3,7 +3,13 @@ class KeywordsController < ApplicationController
   before_action :set_keyword, only: [:show, :edit, :update, :destroy, :reject]
 
   def index
-    @keywords = @campaign.keywords.where(accepted: true)
+    @keywords = @campaign.keywords.where(accepted: [true, nil])
+  end
+  
+  def accept
+    @keywords = @campaign.keywords.where(accepted: nil)
+    @keywords.map { |k| k.update_attribute(:accepted, true) }
+    redirect_to campaign_keywords_url(@campaign)
   end
   
   def reject

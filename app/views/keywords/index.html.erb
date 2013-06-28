@@ -2,6 +2,7 @@
   <div class="btn-group pull-right">
     <%= link_to 'All campaigns', campaigns_url, class: 'btn' %>
     <%= link_to 'Add spreadsheet', new_campaign_sheet_path(@campaign), class: 'btn btn-success' %>
+    <%= link_to 'Accept N/A', accept_campaign_keywords_path(@campaign), class: 'btn btn-info', method: :patch %>
   </div><!--// .btn-group pull-right -->
   <h1>Keywords <small><%= @campaign.name %></small></h1>
 </div><!--// .page-header -->
@@ -12,6 +13,7 @@
   <thead>
     <tr>
       <th>Name</th>
+      <th>Status</th>
       <th>Cost per click</th>
       <th>Clicks per day</th>
       <th>Actions</th>
@@ -22,6 +24,7 @@
     <% @keywords.each do |keyword| %>
       <tr>
         <td><%= keyword.name %></td>
+        <td><%= status_text keyword.accepted %></td>
         <td><%= number_to_currency keyword.cost_per_click %></td>
         <td><%= number_with_precision keyword.clicks_per_day, precision: 2 %></td>
         <td>
