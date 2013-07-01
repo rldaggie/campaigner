@@ -31,6 +31,7 @@
           <div class="btn-group">
             <%= link_to 'Reject', reject_campaign_keyword_path(@campaign, keyword), method: :patch, remote: true, class: 'delete-keyword btn btn-danger btn-mini' %>
             <%= link_to 'Google', "http://www.google.com/search?q=#{u keyword.name}", target: '_blank', class: 'btn btn-mini' %>
+            <%= link_to 'New Campaign', campaigns_path(campaign: { name: keyword.name.titleize }, format: :json), method: :post, remote: true, class: 'btn btn-mini btn-success create-campaign', data: { type: 'json' } %>
           </div><!--// .btn-group -->
         </td>
       </tr>
